@@ -114,9 +114,7 @@ export default {
   methods: {
     getReceiverAddress() {
       let token = localStorage.getItem("token")
-      this.$http.get('/users/getReceiverAddress',{
-         headers: {'Authorization': token},
-      })
+      this.$http.get('/users/getReceiverAddress')
       .then(res => {
         if(res.data.status === 200) {
           this.recieveInfo = res.data.data

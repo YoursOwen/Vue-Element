@@ -6,7 +6,8 @@
         <el-input v-model="formLabelAlign.name"></el-input>
       </el-form-item>
       <el-form-item label="密码">
-        <el-input type="password" v-model="formLabelAlign.password"></el-input>
+                                                                    <!-- .native修饰符：就是把一个vue组件转化为一个普通的HTML标签，并且该修饰符对普通HTML标签是没有任何作用的。 -->
+        <el-input type="password" v-model="formLabelAlign.password" @keydown.native.enter="postLoginHandler"></el-input>
       </el-form-item>
       <el-button type="primary" @click="postLoginHandler">登录</el-button>
 
