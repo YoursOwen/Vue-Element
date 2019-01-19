@@ -1,5 +1,7 @@
 <template>
   <div class="home-container">
+    <el-button type="success" round>{{ userInfo.nickname }}</el-button>
+      <el-button type="danger" round @click="logout">退出</el-button>
     <el-row class="tac">
   <el-col :span="4">
     <el-menu
@@ -97,6 +99,7 @@ export default {
   data() {
     return {
        recieveInfo:[],
+       userInfo:{}
     }
   },
   created() {
@@ -104,7 +107,9 @@ export default {
           message: '恭喜你，登陆成功!',
           type: 'success'
         });
-    this.getReceiverAddress()
+    this.getReceiverAddress();
+    this.userInfo = JSON.parse(localStorage.getItem("userInfo"))
+
   },
   methods: {
     getReceiverAddress() {
@@ -120,6 +125,12 @@ export default {
       .catch(err => {
         console.dir(err)
       })
+    },
+    logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userInfo");
+
+      this.$router.push("/")
     }
   }
 }

@@ -5,7 +5,7 @@ import getters from './getters'
 import mutations from './mutations'
 
 const state = {
-  test:"我是test"
+  userInfo:""
 
 
 }

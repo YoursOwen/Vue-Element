@@ -41,6 +41,7 @@
            // 第一次登录成功时，服务器会生成token令牌，
           //成功后要将token保存到本地，以供后面使用
           localStorage.setItem("token",res.data.data.token)
+          localStorage.setItem("userInfo",JSON.stringify(res.data.data))
           //编程式导航跳转
           // 其中name属性，在需要获取params内容的时候才需要在这里和router.js中配置
           this.$router.push("home")
